@@ -28,6 +28,10 @@ app.use(userRoutes)
 app.get("/", (req, res) => {
     res.json("My MD's project deployed on Northflank ");
   });
+
+  app.get("/test", (req, res) => {
+    res.json({message : "test" })
+  })
   
   app.all("*", (req, res) => {
     res.status(404).json({ message: "This route does not exist" });
