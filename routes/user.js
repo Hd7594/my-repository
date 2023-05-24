@@ -12,13 +12,7 @@ router.post("/user/inscription" , async (req, res) => {
 
         const { username, email, password, newsletter } = req.body;
 
-        if (
-            !username ||
-            !email ||
-            !password ||
-           
-            typeof newsletter !== "boolean"
-          ) {
+        if ( !username || !email || !password || typeof newsletter !== "boolean") {
             return res.status(400).json({ message: "Missing parameters" });
           }
 
