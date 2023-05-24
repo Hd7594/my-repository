@@ -22,7 +22,10 @@ cloudinary.config({
 const offerRoutes = require("./routes/offer")
 app.use(offerRoutes)
 
-
+app.get("/", (req, res) => {
+    res.json("Bonjour vous êtes bien sur mon projet");
+  });
+  
 
 
 app.listen(process.env.PORT, () => {
