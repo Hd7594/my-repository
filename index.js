@@ -35,12 +35,3 @@ app.listen(process.env.PORT, () => {
     console.log("Server started");
   });
 
-
-
-//ne pas oublier de faire installer les packages express axios uid2 crypto-js , express-fileupload , cloudinary , dotenv , cors
-
-// mettre le mongoose.connect sur le fichier .env 
-//et mettre mongoose.connect(process.env.MONGODB_URI); sur le fichier principal
-
-
-//lors du déploiement , remplacer le port(3000) dans app.listen par (process.env.PORT, ()....) 
