@@ -26,7 +26,7 @@ const userRoutes = require("./routes/user")
 app.use(userRoutes)
 
 app.get("/", (req, res) => {
-    res.json("Bonjour vous êtes bien sur mon projet");
+    res.json("My MD's project deployed on Northflank ");
   });
   
 
