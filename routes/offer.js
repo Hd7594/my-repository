@@ -17,6 +17,9 @@ const convertToBase64 = require("../utils/convertToBase64")
 
 
 
+
+
+
 router.post("/offer/publish" , fileUpload(), async (req, res) => {
 
     try {
