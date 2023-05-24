@@ -25,7 +25,7 @@ app.use(offerRoutes)
 
 
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log("Server started");
   });
 
@@ -35,3 +35,6 @@ app.listen(3000, () => {
 
 // mettre le mongoose.connect sur le fichier .env 
 //et mettre mongoose.connect(process.env.MONGODB_URI); sur le fichier principal
+
+
+//lors du déploiement , remplacer le port(3000) dans app.listen par (process.env.PORT, ()....) 

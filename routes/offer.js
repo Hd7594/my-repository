@@ -68,7 +68,7 @@ router.get("/offers", async (req, res) => {
 
 
           if (priceMin) {
-            //console.log("J'ai reçu un price min ");
+            
             filter.product_price = { $gte: Number(priceMin) };
           }
 
