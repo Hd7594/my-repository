@@ -60,23 +60,23 @@ router.get("/offers", async (req, res) => {
         
         const { title, priceMin, priceMax, sort, page } = req.query;
 
-        const filter = {}
+        const filterPage = {}
 
         if (title) {
-            filter.product_name = new RegExp(title, "i");
+            filterPage.product_name = new RegExp(title, "i");
           }
 
 
           if (priceMin) {
             
-            filter.product_price = { $gte: Number(priceMin) };
+            filterPage.product_price = { $gte: Number(priceMin) };
           }
 
           if (priceMax) {
             
-            if (filter.product_price) {
+            if (filterPage.product_price) {
            
-              filter.product_price.$lte = Number(priceMax);
+              filterPage.product_price.$lte = Number(priceMax);
             } else {
 
                 filter.product_price = { $lte: Number(priceMax) };
@@ -98,17 +98,17 @@ router.get("/offers", async (req, res) => {
             pageRequired = page;
           }
       
-          const skip = (pageRequired - 1) * limit;
-          console.log(skip);
+          const skipPage = (pageRequired - 1) * limit;
+          console.log(skipPage);
       
-          console.log(filter);
-          const offersFiltered = await OfferPublish.find(filter)
+          console.log(filterPage);
+          const offersFiltered = await OfferPublish.find(filterPage)
             .sort(sortFilter)
-            .skip(skip)
+            .skip(skipPage)
             .limit(limit)
             .populate("owner", "account");
       
-          const count = await OfferPublish.countDocuments(filter);
+          const count = await OfferPublish.countDocuments(filterPage);
       
           res.json({ count: count, offers: offersFiltered });
 

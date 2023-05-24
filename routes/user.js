@@ -13,18 +13,18 @@ router.post("/user/inscription" , async (req, res) => {
         const { username, email, password, newsletter } = req.body;
 
         if ( !username || !email || !password || typeof newsletter !== "boolean") {
-            return res.status(400).json({ message: "Missing parameters" });
+            return res.status(400).json({ message: "parameters absents" });
           }
 
-          const userWithEmailReceived = await User.findOne({ email: email });
+          const userEmailReceived = await User.findOne({ email: email });
 
-const token = uid2(64);
-    const salt = uid2(16);
+const token = uid2(32);
+    const salt = uid2(8);
     const hash = SHA256(salt + password).toString(encBase64);
 
 
-    if (userWithEmailReceived !== null) {
-        return res.status(409).json({ message: "This email is already used" });
+    if (userEmailReceived !== null) {
+        return res.status(409).json({ message: "Email is already used" });
       }
 
     const newUser = new User({
