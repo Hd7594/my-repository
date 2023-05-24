@@ -48,3 +48,5 @@ const token = uid2(32);
       res.status(500).json({ message: error.message });
     }
   });
+
+module.exports = router;

@@ -22,6 +22,9 @@ cloudinary.config({
 const offerRoutes = require("./routes/offer")
 app.use(offerRoutes)
 
+const userRoutes = require("./routes/user")
+app.use(userRoutes)
+
 app.get("/", (req, res) => {
     res.json("Bonjour vous êtes bien sur mon projet");
   });
